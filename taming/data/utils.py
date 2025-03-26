@@ -8,7 +8,14 @@ from pathlib import Path
 import numpy as np
 import torch
 from taming.data.helper_types import Annotation
-from torch._six import string_classes
+# from torch._six import string_classes
+
+import collections.abc as container_abcs  # 替代旧版 container_abcs
+
+# from torch.utils.data._utils.six import string_classes  # 新版 PyTorch 的替代方案
+import six
+string_classes = (six.string_types, six.text_type)
+
 from torch.utils.data._utils.collate import np_str_obj_array_pattern, default_collate_err_msg_format
 from tqdm import tqdm
 
