@@ -14,7 +14,12 @@ import logging
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-from transformers import top_k_top_p_filtering
+# from transformers import top_k_top_p_filtering
+from transformers import (
+    TopKLogitsWarper, # 对应 Top-K 采样[1](@ref)
+    TopPLogitsWarper, # 对应 Top-P 采样[1](@ref)
+    LogitsProcessorList
+)
 
 logger = logging.getLogger(__name__)
 
@@ -337,8 +342,10 @@ def sample_with_past(x, model, steps, temperature=1., sample_logits=True,
             past.append(present)
         logits = logits[:, -1, :] / temperature
         if top_k is not None:
-            logits = top_k_top_p_filtering(logits, top_k=top_k, top_p=top_p)
-
+            logits = LogitsProcessorList([
+                TopKLogitsWarper(top_k=top_k),
+                TopPLogitsWarper(top_p=top_p),
+            ])
         probs = F.softmax(logits, dim=-1)
         if not sample_logits:
             _, x = torch.topk(probs, k=1, dim=-1)

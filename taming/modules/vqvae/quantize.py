@@ -443,3 +443,7 @@ class EMAVectorQuantizer(nn.Module):
         #z_q, 'b h w c -> b c h w'
         z_q = rearrange(z_q, 'b h w c -> b c h w')
         return z_q, loss, (perplexity, encodings, encoding_indices)
+
+
+
+

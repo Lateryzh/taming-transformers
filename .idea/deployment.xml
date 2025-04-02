@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="yzh@192.168.195.8:22 password (11)" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="yzh@192.168.195.8:22 password (13)" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="yzh@192.168.195.8:22 password">
         <serverdata>
@@ -20,6 +20,20 @@
         <serverdata>
           <mappings>
             <mapping deploy="/home/data/yzh/taming-transformers" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="yzh@192.168.195.8:22 password (12)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yzh/data/taming-transformers" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="yzh@192.168.195.8:22 password (13)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yzh/data/taming-transformers" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

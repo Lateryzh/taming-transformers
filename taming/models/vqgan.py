@@ -53,6 +53,12 @@ class VQModel(pl.LightningModule):
         print(f"Restored from {path}")
 
     def encode(self, x):
+        # print("*"*500)
+        # print(x.shape)
+        # print("*"*500)
+        # # 转换为单通道灰度图（假设输入为 RGB 张量）
+        # x = torch.mean(x, dim=1, keepdim=True)  # 沿通道维度取均值，形状变为 [32, 1, 256, 256]
+
         h = self.encoder(x)
         h = self.quant_conv(h)
         quant, emb_loss, info = self.quantize(h)

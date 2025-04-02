@@ -11,6 +11,7 @@ class CustomBase(Dataset):
         super().__init__()
         self.data = None
 
+
     def __len__(self):
         return len(self.data)
 
